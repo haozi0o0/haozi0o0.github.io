@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on 耗子的学习笔记</title>
+    <link>http://localhost:1313/categories/linux/</link>
+    <description>Recent content in linux on 耗子的学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 Jul 2020 08:54:39 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cat</title>
+      <link>http://localhost:1313/post/cat/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/cat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cd</title>
+      <link>http://localhost:1313/post/cd/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/cd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chmod</title>
+      <link>http://localhost:1313/post/chmod/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/chmod/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>date</title>
+      <link>http://localhost:1313/post/date/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/date/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dhcp服务</title>
+      <link>http://localhost:1313/post/dhcp/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/dhcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dns服务</title>
+      <link>http://localhost:1313/post/dns/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/dns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fdisk</title>
+      <link>http://localhost:1313/post/fdisk/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/fdisk/</guid>
+      <description>&lt;p&gt;磁盘管理&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>find</title>
+      <link>http://localhost:1313/post/find/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/find/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>free</title>
+      <link>http://localhost:1313/post/free/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/free/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ftp服务</title>
+      <link>http://localhost:1313/post/ftp/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/ftp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grep</title>
+      <link>http://localhost:1313/post/grep/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/grep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ifconfig</title>
+      <link>http://localhost:1313/post/ifconfig/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/ifconfig/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>is</title>
+      <link>http://localhost:1313/post/ls/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/ls/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>man</title>
+      <link>http://localhost:1313/post/man/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/man/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mkdir</title>
+      <link>http://localhost:1313/post/mkdir/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/mkdir/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rm</title>
+      <link>http://localhost:1313/post/rm/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/rm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Samba服务</title>
+      <link>http://localhost:1313/post/samba/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/samba/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shutdown</title>
+      <link>http://localhost:1313/post/shutdown/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/shutdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tail</title>
+      <link>http://localhost:1313/post/tail-head/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/tail-head/</guid>
+      <description>&lt;p&gt;tail and head&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Touch</title>
+      <link>http://localhost:1313/post/touch/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/touch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uname</title>
+      <link>http://localhost:1313/post/uname/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/uname/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Useradd</title>
+      <link>http://localhost:1313/post/useradd/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/useradd/</guid>
+      <description>&lt;p&gt;用户和组的基本信息&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>http://localhost:1313/post/vim/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wc</title>
+      <link>http://localhost:1313/post/wc/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/wc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web服务</title>
+      <link>http://localhost:1313/post/web/</link>
+      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/web/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

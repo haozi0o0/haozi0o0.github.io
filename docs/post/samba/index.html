@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Samba服务 - 耗子的学习笔记</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="haozi0o0" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.76.5 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/samba/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Samba服务" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/samba/" />
+<meta property="article:published_time" content="2020-07-19T08:54:39+08:00" />
+<meta property="article:modified_time" content="2020-07-19T08:54:39+08:00" />
+<meta itemprop="name" content="Samba服务">
+<meta itemprop="description" content="">
+<meta itemprop="datePublished" content="2020-07-19T08:54:39+08:00" />
+<meta itemprop="dateModified" content="2020-07-19T08:54:39+08:00" />
+<meta itemprop="wordCount" content="861">
+
+
+
+<meta itemprop="keywords" content="linux," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Samba服务"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">haozi0o0</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">haozi0o0</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Samba服务</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 19190-39-19 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> linux </a>
+            </div>
+          <span class="more-meta"> 861 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#samba服务共享文件">Samba服务(共享文件)</a></li>
+    <li><a href="#在配置文件中">在配置文件中</a></li>
+    <li><a href="#例子配置匿名用户访问">例子:配置匿名用户访问</a>
+      <ul>
+        <li><a href="#对应配置">对应配置:</a></li>
+        <li><a href="#注意工作当中一般匿名用户是没有权限写入的">注意:工作当中一般匿名用户是没有权限写入的</a></li>
+      </ul>
+    </li>
+    <li><a href="#例子2配置普通用户的访问">例子2:配置普通用户的访问</a></li>
+    <li><a href="#注意font-colorff00000">注意:<!-- raw HTML omitted --></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#如果前提配置文件都配置完整后还不能访问samba服务则">如果前提配置文件都配置完整后还不能访问samba服务则:</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="linux网络服务之一--------------samba文件共享服务">Linux网络服务之一        &mdash;&mdash;samba(文件共享)服务</h1>
+<h2 id="samba服务共享文件">Samba服务(共享文件)</h2>
+<p>#<!-- raw HTML omitted -->rpm -q samba<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//检查samba服务是否安装</p>
+</blockquote>
+<p>#<!-- raw HTML omitted -->yum install -y samba<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//安装samba</p>
+</blockquote>
+<p>#<!-- raw HTML omitted -->service smb start<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//启动samba服务</p>
+</blockquote>
+<p>#<!-- raw HTML omitted -->systemctl stop firewalld<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//停止防火墙</p>
+</blockquote>
+<p>#<!-- raw HTML omitted -->setenforce 0<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//设置关闭临时策略(临时)</p>
+</blockquote>
+<p>#<!-- raw HTML omitted -->vi/etc/selinux/config<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//设置 SELINUX=disabled
+,永久设置安全策略</p>
+</blockquote>
+<p>#<!-- raw HTML omitted -->vi/etc/samba/smb.conf<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//smb的配置文件</p>
+</blockquote>
+<h2 id="在配置文件中">在配置文件中</h2>
+<blockquote>
+<p><!-- raw HTML omitted -->global<!-- raw HTML omitted --><br>
+//(全局配置)</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->homes <!-- raw HTML omitted --><br>
+//(共享文件夹)</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->print$<!-- raw HTML omitted --><br>
+//(共享打印机)</p>
+</blockquote>
+<h2 id="例子配置匿名用户访问">例子:配置匿名用户访问</h2>
+<h3 id="对应配置">对应配置:</h3>
+<p><!-- raw HTML omitted -->[xxxx]<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//共享文件的名字</p>
+</blockquote>
+<p><!-- raw HTML omitted -->comment=XXX<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//共享描述</p>
+</blockquote>
+<p><!-- raw HTML omitted -->path=XXX<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//共享的文件夹名称</p>
+</blockquote>
+<p><!-- raw HTML omitted -->browseable=yes<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//共享目录是否显示，yes为显示，no为不显示</p>
+</blockquote>
+<p><!-- raw HTML omitted -->map to guest=bad user<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//和browseable配套使用(此命令在全局配置中输入:允许匿名访问)</p>
+</blockquote>
+<p><!-- raw HTML omitted -->writable=yes<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//共享目录是否可写，如果是yes需要同时设置共享的目录的用户权限为可写，可以使用chomd命令来设置<br>
+//注意:配置文件中的命令和文件夹的权限是两码事。</p>
+</blockquote>
+<p><!-- raw HTML omitted -->guest ok=yes<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//是否允许匿名访问</p>
+</blockquote>
+<p><!-- raw HTML omitted -->service smb restart<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//重启服务</p>
+</blockquote>
+<p><!-- raw HTML omitted -->testparm<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//检查配置文件错误</p>
+</blockquote>
+<h3 id="注意工作当中一般匿名用户是没有权限写入的">注意:工作当中一般匿名用户是没有权限写入的</h3>
+<h2 id="例子2配置普通用户的访问">例子2:配置普通用户的访问</h2>
+<p>#<!-- raw HTML omitted -->useradd XXX<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//添加用户</p>
+</blockquote>
+<p>#<!-- raw HTML omitted -->smbpasswd -a XXX<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//给xxx用户设置密码</p>
+</blockquote>
+<p><!-- raw HTML omitted -->writable=yes<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//允许写入操作，同时要设置共享文件夹的权限</p>
+</blockquote>
+<p><!-- raw HTML omitted -->valid users=XXX<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//可以访问的用户列表，如果多用户用逗号隔开</p>
+</blockquote>
+<p><!-- raw HTML omitted -->write list=XXX<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//有写入权限的用户列表，如果多用户用逗号隔开<br>
+注意:如果有writable，会冲突，可以把writable删除掉</p>
+</blockquote>
+<p><!-- raw HTML omitted -->net use * /del /y<!-- raw HTML omitted --></p>
+<blockquote>
+<p>//删除用户登录信息（可以达到更换用户）</p>
+</blockquote>
+<h2 id="注意font-colorff00000">注意:<!-- raw HTML omitted --></h2>
+<blockquote>
+<p>此条命令是在win10/7的cmd里执行，进入cmd的方法:win+r键，然后输入cmd即可进入cmd<!-- raw HTML omitted --></p>
+</blockquote>
+<h1 id="win7注意">Win7注意:</h1>
+<h2 id="如果前提配置文件都配置完整后还不能访问samba服务则">如果前提配置文件都配置完整后还不能访问samba服务则:</h2>
+<blockquote>
+<p>1.Win+r，然后输入secpol.msc<br>
+2.点击本地策略<br>
+3.点击安全选项<br>
+4.在右侧找到:网络安全:LAN管理器身份验证级别并更改为发送LM和HTLM-如果以协商，则使用NTLMv2会话安全即可。</p>
+</blockquote>
+<h1 id="如果设置了普通用户访问samba文件夹不能访问">如果设置了普通用户访问samba文件夹不能访问</h1>
+<blockquote>
+<p>1.修改 /etc/samba/smb.conf，在Global项下增加:<br>
+2.client lanman auth = YES   <br>
+3.lanman auth = YES<br>
+4.ntlm auth = YES<br>
+即可</p>
+</blockquote>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">haozi0o0</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        19190-39-19
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/rm/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">rm</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/shutdown/">
+            <span class="next-text nav-default">shutdown</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">haozi0o0</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
