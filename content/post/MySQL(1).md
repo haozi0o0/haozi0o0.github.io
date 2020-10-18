@@ -1,12 +1,15 @@
 ---
 title: "MySQL入门第一篇"
-date: 2020-10-18T11:01:39+08:00
+date: 
 draft: false
 tags: [MySQL]
 categories: [MySQL]
 ---
-# 学习笔记
 <!--more-->
+
+
+# 学习笔记
+
 
 show database；  
 
