@@ -6,14 +6,14 @@
     <description>Recent content on 耗子的学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Oct 2020 08:54:39 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Oct 2020 11:01:39 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MySQL入门第一篇</title>
-      <link>http://localhost:1313/post/111/</link>
-      <pubDate>Sun, 18 Oct 2020 08:54:39 +0800</pubDate>
+      <link>http://localhost:1313/post/mysql1/</link>
+      <pubDate>Sun, 18 Oct 2020 11:01:39 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/111/</guid>
-      <description></description>
+      <guid>http://localhost:1313/post/mysql1/</guid>
+      <description>学习笔记 show database； //显示所有数据库，数据库的语句格式都是分号结尾 use &amp;lt;数据库名&amp;gt; //进入数据库 show tables； //查看</description>
     </item>
     
     <item>
@@ -149,15 +149,6 @@
       
       <guid>http://localhost:1313/post/mkdir/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>http://localhost:1313/post/my-first-post/</link>
-      <pubDate>Sun, 19 Jul 2020 08:54:39 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/my-first-post/</guid>
-      <description>This is my new blog</description>
     </item>
     
     <item>
