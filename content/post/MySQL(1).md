@@ -1,6 +1,6 @@
 ---
 title: "MySQL入门第一篇"
-date: 
+date: 2020-07-19T08:54:39+08:00
 draft: false
 tags: [MySQL]
 categories: [MySQL]

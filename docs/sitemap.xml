@@ -128,6 +128,27 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/tags/mysql/</loc>
+    <lastmod>2020-07-19T08:54:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/mysql/</loc>
+    <lastmod>2020-07-19T08:54:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/mysql1/</loc>
+    <lastmod>2020-07-19T08:54:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/post/</loc>
     <lastmod>2020-07-19T08:54:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -214,24 +235,6 @@
   <url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2020-07-19T08:54:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/mysql/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/categories/mysql/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/post/mysql1/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
