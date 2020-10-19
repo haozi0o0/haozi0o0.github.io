@@ -149,6 +149,13 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/mysql2/</loc>
+    <lastmod>2020-07-19T08:54:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/post/</loc>
     <lastmod>2020-07-19T08:54:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
