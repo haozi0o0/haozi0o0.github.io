@@ -37,52 +37,27 @@ categories: [linux]
 + <font color=“greem”>q  </font>   
 >//不保存退出分区  
 ## 磁盘的格式化操作  
-#<font color=“greem”>mkfs （参数） （格式化的文件系统类型）（分区名称）</font>    
-+ <font color=“greem”>-t </font> 
->//指定要创建的文件系统类型（常见ext类型）  
-+ <font color=“greem”>-c </font> 
->//建立文件系统先检查坏块  
-+ <font color=“greem”>-l file </font> 
->//从文件file中读磁盘坏块列表，file文件一般是由磁盘坏块检查程序产生的  
-+ <font color=“greem”>-V </font> 
->//输出建立文件系统详情信息  
-# 检查文件系统的正确性  
-+ <font color=“greem”>fsck （参数）（分区名称）</font>  
-## 参数: 
-+ <font color=“greem”>-t</font>  
->//给定文件系统类型，若在/etc/fstab中已有定义或kernel本身以支持的不需添加此项  
-+ <font color=“greem”>-s</font> 
->//一个一个地执行fsck命令进行检查  
-+ <font color=“greem”>-A</font>  
->//对/etc/fstab中所有列出来的分区进行检查  
-+ <font color=“greem”>-C</font>  
->//显示完整的检查进度  
-+ <font color=“greem”>-d</font>  
->//列出fsck的debug结果  
-+ <font color=“greem”>-P</font>  
->//在同时有-A选项时，多个fsck的检查一起执行  
-+ <font color=“greem”>-a</font>  
->//如果检查中发现错误，则自动修复  
-+ <font color=“greem”>-r</font>  
->//如果检查有错误，询问是否修复  
+#<font color=“greem”>mkfs（格式化的文件系统类型）（分区名称）</font> 
 # 文件的挂载与卸载 
 #<font color=“greem”>mount （选项（可有可无））（分区）（挂载点）</font>  
 例如：  
->mount -t ext3/dev/sdb1 /mnt/m1
+>mount /dev/sdb1 /mnt/m1
 
 <br>卸载命令格式：  
  + #<font color=“greem”>umount 分区|挂载点</font>  
 例如：  
- > umount /dev/sdb1
+ > umount /dev/sdb1 /mnt/m1
 
 ## 自动挂载：  
-1.设置开机自动挂载，查看磁盘UUID信息  
-#<font color=“greem”>blkid</font>   
+1.设置开机自动挂载   
 2.增加自动挂载磁盘信息， 修改（vim /etc/fstab）配置文件：  
 #<font color=“greem”>vi/etc/fstab</font>  
 3.添加以下信息  
-UUID=f495dd82-2924-4af4-9262-d4a71f1156e3 /data ext4 defaults 0 0  
->//UUID是你要挂载的硬盘的UUID
 
-4.查看    
-#<font color=“greem”>mount -a </font> 
+## gdisk分区格式：（gpt格式，没有主分区和扩展分区的概念了）  
+gdisk （要分区的磁盘）
+
+> //进入分区，开始划分
+
+里面和fdisk一样，保存后要格式化才能使用
+
