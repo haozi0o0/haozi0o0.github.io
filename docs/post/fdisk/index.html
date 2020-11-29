@@ -50,7 +50,7 @@
 <meta itemprop="description" content="磁盘管理">
 <meta itemprop="datePublished" content="2020-07-19T08:54:39+08:00" />
 <meta itemprop="dateModified" content="2020-07-19T08:54:39+08:00" />
-<meta itemprop="wordCount" content="768">
+<meta itemprop="wordCount" content="492">
 
 
 
@@ -123,8 +123,8 @@
         <div class="post-category">
             <a href="/categories/linux/"> linux </a>
             </div>
-          <span class="more-meta"> 768 words </span>
-          <span class="more-meta"> 2 mins read </span>
+          <span class="more-meta"> 492 words </span>
+          <span class="more-meta"> 1 min read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -139,11 +139,8 @@
   </ul>
 
   <ul>
-    <li><a href="#参数">参数:</a></li>
-  </ul>
-
-  <ul>
     <li><a href="#自动挂载">自动挂载：</a></li>
+    <li><a href="#gdisk分区格式gpt格式没有主分区和扩展分区的概念了">gdisk分区格式：（gpt格式，没有主分区和扩展分区的概念了）</a></li>
   </ul>
 </nav>
   </div>
@@ -223,89 +220,12 @@
 <p>//不保存退出分区</p>
 </blockquote>
 <h2 id="磁盘的格式化操作">磁盘的格式化操作</h2>
-<p>#<!-- raw HTML omitted -->mkfs （参数） （格式化的文件系统类型）（分区名称）<!-- raw HTML omitted --></p>
-<ul>
-<li><!-- raw HTML omitted -->-t <!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//指定要创建的文件系统类型（常见ext类型）</p>
-</blockquote>
-<ul>
-<li><!-- raw HTML omitted -->-c <!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//建立文件系统先检查坏块</p>
-</blockquote>
-<ul>
-<li><!-- raw HTML omitted -->-l file <!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//从文件file中读磁盘坏块列表，file文件一般是由磁盘坏块检查程序产生的</p>
-</blockquote>
-<ul>
-<li><!-- raw HTML omitted -->-V <!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//输出建立文件系统详情信息</p>
-</blockquote>
-<h1 id="检查文件系统的正确性">检查文件系统的正确性</h1>
-<ul>
-<li><!-- raw HTML omitted -->fsck （参数）（分区名称）<!-- raw HTML omitted --></li>
-</ul>
-<h2 id="参数">参数:</h2>
-<ul>
-<li><!-- raw HTML omitted -->-t<!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//给定文件系统类型，若在/etc/fstab中已有定义或kernel本身以支持的不需添加此项</p>
-</blockquote>
-<ul>
-<li><!-- raw HTML omitted -->-s<!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//一个一个地执行fsck命令进行检查</p>
-</blockquote>
-<ul>
-<li><!-- raw HTML omitted -->-A<!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//对/etc/fstab中所有列出来的分区进行检查</p>
-</blockquote>
-<ul>
-<li><!-- raw HTML omitted -->-C<!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//显示完整的检查进度</p>
-</blockquote>
-<ul>
-<li><!-- raw HTML omitted -->-d<!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//列出fsck的debug结果</p>
-</blockquote>
-<ul>
-<li><!-- raw HTML omitted -->-P<!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//在同时有-A选项时，多个fsck的检查一起执行</p>
-</blockquote>
-<ul>
-<li><!-- raw HTML omitted -->-a<!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//如果检查中发现错误，则自动修复</p>
-</blockquote>
-<ul>
-<li><!-- raw HTML omitted -->-r<!-- raw HTML omitted --></li>
-</ul>
-<blockquote>
-<p>//如果检查有错误，询问是否修复</p>
-</blockquote>
+<p>#<!-- raw HTML omitted -->mkfs（格式化的文件系统类型）（分区名称）<!-- raw HTML omitted --></p>
 <h1 id="文件的挂载与卸载">文件的挂载与卸载</h1>
 <p>#<!-- raw HTML omitted -->mount （选项（可有可无））（分区）（挂载点）<!-- raw HTML omitted --><br>
 例如：</p>
 <blockquote>
-<p>mount -t ext3/dev/sdb1 /mnt/m1</p>
+<p>mount /dev/sdb1 /mnt/m1</p>
 </blockquote>
 <p><!-- raw HTML omitted -->卸载命令格式：</p>
 <ul>
@@ -313,20 +233,18 @@
 例如：</li>
 </ul>
 <blockquote>
-<p>umount /dev/sdb1</p>
+<p>umount /dev/sdb1 /mnt/m1</p>
 </blockquote>
 <h2 id="自动挂载">自动挂载：</h2>
-<p>1.设置开机自动挂载，查看磁盘UUID信息<br>
-#<!-- raw HTML omitted -->blkid<!-- raw HTML omitted --><br>
+<p>1.设置开机自动挂载<br>
 2.增加自动挂载磁盘信息， 修改（vim /etc/fstab）配置文件：<br>
 #<!-- raw HTML omitted -->vi/etc/fstab<!-- raw HTML omitted --><br>
-3.添加以下信息<br>
-UUID=f495dd82-2924-4af4-9262-d4a71f1156e3 /data ext4 defaults 0 0</p>
+3.添加以下信息</p>
+<h2 id="gdisk分区格式gpt格式没有主分区和扩展分区的概念了">gdisk分区格式：（gpt格式，没有主分区和扩展分区的概念了）</h2>
+<p>gdisk （要分区的磁盘）</p>
 <blockquote>
-<p>//UUID是你要挂载的硬盘的UUID</p>
+<p>//进入分区，开始划分,里面和fdisk一样，保存后要格式化才能使用</p>
 </blockquote>
-<p>4.查看 <br>
-#<!-- raw HTML omitted -->mount -a <!-- raw HTML omitted --></p>
     </div>
 
     <div class="post-copyright">
