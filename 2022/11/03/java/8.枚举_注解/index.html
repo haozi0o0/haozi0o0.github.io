@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="haozi0o0">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="枚举_注解_异常处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8.枚举_注解_异常处理">
+<meta property="og:url" content="http://example.com/2022/11/03/java/8.%E6%9E%9A%E4%B8%BE_%E6%B3%A8%E8%A7%A3/index.html">
+<meta property="og:site_name" content="耗子的学习笔记">
+<meta property="og:description" content="枚举_注解_异常处理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/JAVA_TP/2.png">
+<meta property="og:image" content="http://example.com/JAVA_TP/1.jpg">
+<meta property="article:published_time" content="2022-11-03T11:30:45.017Z">
+<meta property="article:modified_time" content="2022-11-17T06:34:55.445Z">
+<meta property="article:author" content="haozi0o0">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/JAVA_TP/2.png">
+  
+  
+  
+  <title>8.枚举_注解_异常处理 - 耗子的学习笔记</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>haozi0o0</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="8.枚举_注解_异常处理"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-03 19:30" pubdate>
+          2022年11月3日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          50 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">8.枚举_注解_异常处理</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="枚举-注解-异常处理"><a href="#枚举-注解-异常处理" class="headerlink" title="枚举_注解_异常处理"></a>枚举_注解_异常处理</h1><span id="more"></span>
+<h1 id="1-枚举"><a href="#1-枚举" class="headerlink" title="1.枚举"></a>1.枚举</h1><p>枚举:是一组常量的集合,可以理解为枚举属于一种特殊的类,里面只包含一组有限的特定的对象。<br>实现方式:<br>1.自定义类实现枚举<br>2.使用enum关键字实现枚举<br>自定义枚举案例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[]args)</span>&#123;<br>        <span class="hljs-comment">//1.将构造器私有化,目的防止直接new</span><br>        <span class="hljs-comment">//2.去掉setxxx方法</span><br>        <span class="hljs-comment">//3.在season内部，直接创建固定的对象</span><br>        <span class="hljs-comment">//4.优化,可以加入final修饰符</span><br>    System.out.println(Season.s1);<br>    &#125;<br>&#125;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Season</span>&#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> String desc;<br>          <span class="hljs-comment">//下面定义了4个对象</span><br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Season</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Season</span>(<span class="hljs-string">&quot;春天&quot;</span>,<span class="hljs-string">&quot;温暖&quot;</span>);<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Season</span> <span class="hljs-variable">s2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Season</span>(<span class="hljs-string">&quot;夏天&quot;</span>,<span class="hljs-string">&quot;炎热&quot;</span>);<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Season</span> <span class="hljs-variable">s3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Season</span>(<span class="hljs-string">&quot;秋天&quot;</span>,<span class="hljs-string">&quot;凉爽&quot;</span>);<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Season</span> <span class="hljs-variable">s4</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Season</span>(<span class="hljs-string">&quot;冬天&quot;</span>,<span class="hljs-string">&quot;寒冷&quot;</span>);<br>    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Season</span><span class="hljs-params">(String name,String desc)</span>&#123;<br>        <span class="hljs-built_in">this</span>.name=name;<br>        <span class="hljs-built_in">this</span>.desc=desc;<br>    &#125;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getDesc</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> desc;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>enum关键字实现枚举案例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test2</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[]args)</span>&#123;<br>    System.out.println(Season2.s1);<br>    &#125;<br>&#125;<br><span class="hljs-keyword">enum</span> <span class="hljs-title class_">Season2</span>&#123;<br>          <span class="hljs-comment">//下面定义了4个对象</span><br>          <span class="hljs-comment">//如果使用了enum来实现枚举类</span><br>          <span class="hljs-comment">//1.使用关键字enum替代class</span><br>          <span class="hljs-comment">//2.s1(&quot;春天&quot;,&quot;温暖&quot;);//常量名(实参列表)</span><br>          <span class="hljs-comment">//3.如果使用enum来实现枚举,要求将定义常量对象,写在前面</span><br>          s1(<span class="hljs-string">&quot;春天&quot;</span>,<span class="hljs-string">&quot;温暖&quot;</span>);<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> String desc;<br>    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Season2</span><span class="hljs-params">(String name,String desc)</span>&#123;<br>        <span class="hljs-built_in">this</span>.name=name;<br>        <span class="hljs-built_in">this</span>.desc=desc;<br>    &#125;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getDesc</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> desc;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>注意事项:<br>1.枚举对象必须放在枚举类的行首</p>
+<h2 id="1-1enum枚举常用方法"><a href="#1-1enum枚举常用方法" class="headerlink" title="1.1enum枚举常用方法"></a>1.1enum枚举常用方法</h2><p>说明:使用关键字enum时,会隐式继承Enum类这样我们就可以使用Enum类的相关方法。<br>enum常用方法的使用:<br>1.toString:Enum类已经重写过了,返回的是当前对象名，子类可以重写该方法，用于返回对象的属性信息<br>2.name:返回当前对象名(常量名)，子类中不能重写<br>3.ordinal:返回当前对象的位置号,默认从0开始<br>4.values:返回当前枚举类的所有常量<br>5.valueOf:将字符串转换成枚举对象,要求字符串必须为已有的常量名,否则报异常<br>6.compareTo:比较两个枚举常量，比较的就是编号！！<br>举例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">EnumMethod</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[]args)</span>&#123;<br>        <span class="hljs-comment">//使用season2枚举类,来演示各种方法</span><br>    	<span class="hljs-type">Season2</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> Season2.s1;<br>    	<span class="hljs-comment">//输出枚举对象的名字</span><br>    	System.out.println(s1.name());<br>    	<span class="hljs-comment">//ordinal()输出的是该枚举对象的次序/编号,从0开始</span><br>    	System.out.println(s1.ordinal());<br>    	<span class="hljs-comment">//从反编译可以看出values方法,返回Season2[]</span><br>    	<span class="hljs-comment">//含有定义的所有枚举对象</span><br>    	Season2[] values = Season2.values();<br>    	<span class="hljs-keyword">for</span>(Season2 season:values) &#123;<br>    		System.out.println(season);<br>    	&#125;<br>    	<span class="hljs-comment">//valueOf</span><br>    	<span class="hljs-type">Season2</span> <span class="hljs-variable">autumn1</span> <span class="hljs-operator">=</span> Season2.valueOf(<span class="hljs-string">&quot;s3&quot;</span>);<br>    	System.out.println(autumn1);<br>    	<span class="hljs-comment">//compareTo,比较s1和s2的编号,如果=0,则相等,&lt;0,则代表前面的编号小于后面的编号,&gt;1,则前面的编号大于后面的编号</span><br>    	System.out.println(Season2.s1.compareTo(Season2.s2));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>细节:</p>
+<ol>
+<li>使用enum关键字后,就不能再继承其他类了,因为enum会隐式继承Enum</li>
+<li>枚举类和普通类一样，可以实现接口<br>语法:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">enum</span> 类名 implements 接口<span class="hljs-number">1</span>，接口<span class="hljs-number">2</span>&#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="2-注解"><a href="#2-注解" class="headerlink" title="2.注解"></a>2.注解</h1><h2 id="2-1Override注解"><a href="#2-1Override注解" class="headerlink" title="2.1Override注解"></a>2.1Override注解</h2>解释:使用Annotation时要在其前面增加@符号,并把该Annotation当成一个修饰符使用,用于修饰它支持的程序元素<br>三个基本的Annotation:<br>1.@Override:限定某个方法,是重写父类方法,该注解只能用于方法<br>2.@Deprecated:用于表示某个程序元素(类,方法等)已过时<br>3.@SuppressWarnings:抑制编译器警告<h1 id="3-异常处理"><a href="#3-异常处理" class="headerlink" title="3.异常处理"></a>3.异常处理</h1>例题:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Exception01</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[]args)</span>&#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">num1</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">num2</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-comment">//int res = num1/num2;</span><br>        <span class="hljs-comment">//1.当程序执行到两数相除时，程序会报错因为被除数为0,而下面的输出语句不会被执行</span><br>        <span class="hljs-comment">//2.JAVA设计者提供了一个叫异常处理机制来解决该问题</span><br>        <span class="hljs-comment">//3.如果程序员,认为一段代码可能出现异常/问题,可以使用try-catch异常处理机制来解决,从而保证程序的健壮性。</span><br>        <span class="hljs-comment">//4.如果进行异常处理,那么即使出现了异常,程序可以继续执行</span><br>        <span class="hljs-keyword">try</span>&#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> num1/num2;<br>        &#125; <span class="hljs-keyword">catch</span> (Exceptopn e)&#123;<br>            System.out.println(e.getMessage());<br>        &#125;<br>        <br>        System.out.println(<span class="hljs-string">&quot;程序继续运行&quot;</span>);<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+概念:java将程序执行中发生的不正常情况称为”异常”;<br>执行过程中所发生的异常时间可分为两类:<br>1.Error(错误):JAVA虚拟机无法解决的严重问题,比如栈溢出,Error是严重错误,程序会崩溃<br>2.Exception:其他因变成错误或偶然的外在因素导致的一般性问题,可以使用针对性的代码进行处理比如:空指针访问,试图读取不存在的文件,网络中断等等,Exception分为两大类:运行时异常[程序运行时,发生的异常]和编译时异常[编程时,编译器检查出的异常].<br>了解异常体系图<br><img src="/../../JAVA_TP/2.png" srcset="/img/loading.gif" lazyload alt="图1"><br>小结:<br>1.异常分为两大类,运行时的异常和编译时的异常<br>2.运行时异常,编译器不要求强制处置的异常,一般是指编程时的逻辑错误，是程序员应该避免其出现的异常。<br>3.对于运行时异常,可以不做处理,因为这类异常很普遍,若全处理可能会对程序的可读性和运行效率产生影响<br>4.编译时异常,是编译器要求必须处置的异常<br>五大运行时的异常:<br>1.NullPointerException:空指针异常<br>2.ArithmeticException:数学运算异常<br>3.ArraylndexOutOfBoundsException:数组下标越界异常<br>4.ClassCastException:类型转换异常<br>5.NumberFormatException:数字格式不正确异常[]<br>编译异常:<br>1.SQLException:操作数据库时,查询表可能发生异常<br>2.IOException:操作文件时,发生的异常<br>3.FileNotFoundException:当操作一个不存在的文件时,异常<br>4.ClassNotFoundException:加载类,而该类不存在时,发生异常<br>5.EOFException:操作文件,到文件末尾,发生异常<br>6.illegalArguementException:参数异常<br>异常处理:<br>定义:就是当异常发生时,对异常处理的方式<br>异常处理的方式:<br>1.try-catch-finally:程序员再代码中捕获发生的异常<br>2.throws:将发生的异常抛出,交给调用者(方法)来处理,最顶级的处理者就是JVM<br>案例:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">try</span>&#123;<br>    代码/可能有异常<br>&#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;<br>    <span class="hljs-comment">//捕获到异常</span><br>    <span class="hljs-comment">//1.当异常发生时</span><br>    <span class="hljs-comment">//2.系统将异常封装成Exception对象e,传递给catch</span><br>    <span class="hljs-comment">//3.得到异常对象后,程序员,自己处理</span><br>    <span class="hljs-comment">//4.注意:如果没有发生异常catch块时不会执行的</span><br>&#125;<span class="hljs-keyword">finally</span>&#123;<br>    <span class="hljs-comment">//1.不管try代码块是否有异常发生,始终要执行finally</span><br>    <span class="hljs-comment">//2.所以,通常将释放资源的代码,放在finally</span><br>&#125;<br></code></pre></td></tr></table></figure>
+Throws处理机制图:<br><img src="/../../JAVA_TP/1.jpg" srcset="/img/loading.gif" lazyload alt="图1"><h2 id="3-1try-catch异常处理"><a href="#3-1try-catch异常处理" class="headerlink" title="3.1try-catch异常处理"></a>3.1try-catch异常处理</h2>案例:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TryCatchDetail02</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[]args)</span>&#123;<br>        <span class="hljs-comment">//1.如果发生异常,则异常发生后面的代码不会执行,直接进入到catch块</span><br>        <span class="hljs-comment">//2.如果异常没有发生,则顺序执行try的代码块,不会进入到catch</span><br>        <span class="hljs-comment">//3.如果希望不管是否发生异常,都执行某段代码则可以使用finally语句块</span><br>        <span class="hljs-keyword">try</span>&#123;<br>            <span class="hljs-type">Person</span> <span class="hljs-variable">person</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br>            person=<span class="hljs-literal">null</span>;<br>            System.out.println(person.getName());<br>            <span class="hljs-type">int</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">n2</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> n1/n2;<br>            <span class="hljs-comment">//1.如果try代码块有可能有多个异常</span><br>            <span class="hljs-comment">//2.可以使用多个catch分别捕获不同的异常,响应处理</span><br>            <span class="hljs-comment">//3.要求子类异常写在前面,父类异常写在后面</span><br>        &#125; <span class="hljs-keyword">catch</span> (NullPointerException e)&#123;<br>            System.out.println(<span class="hljs-string">&quot;空指针异常=&quot;</span>+ e.getMessage());<br>        &#125; <span class="hljs-keyword">catch</span> (ArithmeticException e)&#123;<br>            System.out.println(<span class="hljs-string">&quot;算数异常&quot;</span> + e.getMessage());<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e)&#123;<br>             System.out.println(e.getMessage());<br>        &#125; <span class="hljs-keyword">finally</span>&#123;<br><br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>&#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="3-2throws异常"><a href="#3-2throws异常" class="headerlink" title="3.2throws异常"></a>3.2throws异常</h2>含义:<br>1.如果一个方法(中的语句执行时)可能生成某种异常,但不能确定如何处理这些异常,则此方法应显示地声明抛出异常,表明该方法将不对这些异常进行处理,而由该方法的调用者负责处理<br>2.在方法声明中用throws语句可以声明抛出异常的列表,throws后面的异常类型可以是方法中产生的异常类型,也可以是它的父类<br>例子:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Throws01</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[]args)</span>&#123;<br><br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">f2</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception,(其他异常) &#123;<br>        <span class="hljs-comment">//创建了一个文件流对象</span><br>        <span class="hljs-comment">//1.这里的异常是一个FileNotFoundException编译异常</span><br>        <span class="hljs-comment">//2.使用前面讲过的try-catch-finally可以解决问题</span><br>        <span class="hljs-comment">//3.使用throws,抛出异常,让调用f1方法的调用者(方法)来处理</span><br>        <span class="hljs-comment">//4.throws后面的异常类型可以是方法中产生的异常类型,也可以是它的父类</span><br>        <span class="hljs-comment">//5.throws 关键字后也可以是异常列表,即可抛出多个异常</span><br>        <span class="hljs-type">FileInputStream</span> <span class="hljs-variable">fis</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileInputStream</span>(<span class="hljs-string">&quot;d://aa.txt&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+注意事项:<br>1.对于编译异常,程序必须处理,比如try-catch或throws<br>2.对于运行时异常,程序中如果没有处理,默认就是throws的方式处理<br>3.子类重写父类的方法时,对抛出异常的规定:子类重写的方法,所抛出的异常类型要么和父类抛出的异常一致,要么为父类抛出的异常类型的子类型<br>4.在throws过程中,如果有方法try-catch,就相当于处理异常,就可以不必throws<h2 id="3-3自定义异常"><a href="#3-3自定义异常" class="headerlink" title="3.3自定义异常"></a>3.3自定义异常</h2>定义:<br>当程序中出现了某些错误,但该错误信息没有在Throwable子类中描述处理,这个时候可以自己设计异常类,用于描述该错误信息<br>步骤:<br>1.定义类:自定义异常类名(程序员自己写)继承Exception或RuntimeException<br>2.如果继承Exception则属于编译异常<br>3.如果继承RuntimeException,属于隐形异常(一般来说继承这个较多)<h2 id="3-4throw和throws的区别"><a href="#3-4throw和throws的区别" class="headerlink" title="3.4throw和throws的区别"></a>3.4throw和throws的区别</h2><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">意义</th>
+<th align="center">位置</th>
+<th align="center">后面跟的东西</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">throws</td>
+<td align="center">异常处理的一种方式</td>
+<td align="center">发方法声明处</td>
+<td align="center">异常类型</td>
+</tr>
+<tr>
+<td align="center">throw</td>
+<td align="center">手动生成异常对象的关键字</td>
+<td align="center">方法体中</td>
+<td align="center">异常对象</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/java/" class="category-chain-item">java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/java/">#java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>8.枚举_注解_异常处理</div>
+      <div>http://example.com/2022/11/03/java/8.枚举_注解/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>haozi0o0</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年11月3日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/11/07/%E9%9A%94%E7%A6%BB%E9%A3%8E%E6%99%AF/%E9%9A%94%E7%A6%BB%E5%9B%BE%E7%89%87/" title="隔离风景">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">隔离风景</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/25/java/7.%E7%B1%BB%E5%8F%98%E9%87%8F%E4%B8%8E%E7%B1%BB%E6%96%B9%E6%B3%95/" title="7.类(静态)变量与类(静态)方法">
+                        <span class="hidden-mobile">7.类(静态)变量与类(静态)方法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
